@@ -1,6 +1,6 @@
 'use strict';
 
-const FinanceEngine = require('./finance-engine.js');
+const FinanceEngine = require('./public/finance-engine.js');
 
 const CURRENCY_CODES = FinanceEngine.CURRENCIES.map((c) => c.code);
 

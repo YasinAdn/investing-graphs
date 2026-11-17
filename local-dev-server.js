@@ -6,7 +6,7 @@ const path = require('path');
 const { getLiveSnapshot, fetchLiveHistory } = require('./live-market-service.js');
 
 const PORT = Number(process.env.PORT) || 4173;
-const ROOT_DIR = __dirname;
+const ROOT_DIR = path.join(__dirname, 'public');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',

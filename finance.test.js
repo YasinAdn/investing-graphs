@@ -2,9 +2,9 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const FE = require('./finance-engine.js');
-const MD = require('./market-data.js');
-const CR = require('./chart-renderer.js');
+const FE = require('./public/finance-engine.js');
+const MD = require('./public/market-data.js');
+const CR = require('./public/chart-renderer.js');
 
 test('Screenshot 1 benchmark: 3-Year Savings vs. Inflation Purchasing Power matches exact numbers', () => {
   const proj = FE.projectGrowth({
