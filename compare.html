@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare All Markets — InvestGraph</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="compare">
+  <div class="app-container">
+    <div id="sharedShellTop"></div>
+
+    <main>
+      <section class="graph-card">
+        <div class="card-top-bar">
+          <div class="card-title-wrap">
+            <div class="title-with-risk">
+              <h2 class="card-title" id="cardTitle">10-Year Comparison: Savings vs. PSX vs. NASDAQ vs. Crypto</h2>
+              <span class="risk-pill risk-med">Mixed Risk • Side-by-Side</span>
+            </div>
+            <p class="card-meta" id="cardMeta"></p>
+          </div>
+          <button type="button" class="toggle-chip" id="applyLiveReturnsBtn">Use Real Live Returns</button>
+        </div>
+
+        <div class="kpi-strip">
+          <div class="kpi-item">
+            <div class="kpi-value" id="kpi1Value">—</div>
+            <div class="kpi-label" id="kpi1Label">Cash Put In</div>
+            <div class="kpi-sub" id="kpi1Sub"></div>
+          </div>
+          <div class="kpi-divider" aria-hidden="true"></div>
+          <div class="kpi-item">
+            <div class="kpi-value kpi-green" id="kpi2Value">—</div>
+            <div class="kpi-label" id="kpi2Label">Your Mixed Profit</div>
+            <div class="kpi-sub" id="kpi2Sub"></div>
+          </div>
+          <div class="kpi-divider" aria-hidden="true"></div>
+          <div class="kpi-item">
+            <div class="kpi-value" id="kpi3Value">—</div>
+            <div class="kpi-label" id="kpi3Label">Your Mixed Total</div>
+            <div class="kpi-sub" id="kpi3Sub"></div>
+          </div>
+        </div>
+
+        <div class="plain-english-banner">
+          <span class="plain-english-tag">In Simple Words</span>
+          <p class="plain-english-text" id="plainEnglishText"></p>
+        </div>
+
+        <div class="chart-stage">
+          <div id="chartContainer" class="chart-container"></div>
+          <div id="chartTooltip" class="chart-tooltip"></div>
+        </div>
+        <div class="chart-legend" id="chartLegend"></div>
+
+        <section class="controls-panel">
+          <div class="controls-header">
+            <div>
+              <h3 class="controls-heading">1. Choose your budget &amp; years</h3>
+              <p class="controls-sub">Same exact cash compared fairly across every market</p>
+            </div>
+          </div>
+          <div class="sliders-grid" id="slidersGrid"></div>
+
+          <div class="portfolio-mixer">
+            <div class="mixer-head">
+              <div>
+                <h4 class="mixer-title">2. Split your money (Starter Mixes or Sliders)</h4>
+                <p class="mixer-sub">Never put all eggs in one basket — pick a starter mix or slide yourself</p>
+              </div>
+              <div class="mixer-badges">
+                <div class="controls-toggles" id="starterMixBar">
+                  <button type="button" class="toggle-chip" data-mix="60,20,20,0">Safe (60/20/20/0)</button>
+                  <button type="button" class="toggle-chip" data-mix="25,30,30,15">Balanced (25/30/30/15)</button>
+                  <button type="button" class="toggle-chip" data-mix="10,20,40,30">Growth (10/20/40/30)</button>
+                </div>
+                <span class="mixer-badge" id="mixerBlendedRateBadge">Average Growth: 15.0% / year</span>
+                <button type="button" class="btn-ghost btn-sm" id="normalizeWeightsBtn">Make = 100%</button>
+              </div>
+            </div>
+            <div class="mixer-grid" id="mixerGrid"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="app-footer" id="sharedShellFooter"></footer>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/three.min.js"></script>
+  <script src="finance-engine.js"></script>
+  <script src="market-data.js"></script>
+  <script src="chart-3d-renderer.js"></script>
+  <script src="chart-renderer.js"></script>
+  <script src="shell.js"></script>
+  <script src="page-controllers.js"></script>
+</body>
+</html>

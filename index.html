@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savings Calculator — InvestGraph</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="savings">
+  <div class="app-container">
+    <div id="sharedShellTop"></div>
+
+    <main>
+      <section class="graph-card">
+        <div class="card-top-bar">
+          <div class="card-title-wrap">
+            <div class="title-with-risk">
+              <h2 class="card-title" id="cardTitle">3-Year Savings vs. Inflation Purchasing Power</h2>
+              <span class="risk-pill risk-low">Low Risk • Safe Savings</span>
+            </div>
+            <p class="card-meta" id="cardMeta"></p>
+          </div>
+          <div class="mode-switch-bar" role="group" aria-label="Savings calculator mode">
+            <button type="button" class="mode-btn active" id="savModeGrow">Grow My Savings</button>
+            <button type="button" class="mode-btn" id="savModeGoal">Reach a Money Goal</button>
+          </div>
+        </div>
+
+        <!-- Reverse Goal Finder (shown when Reach a Money Goal is clicked) -->
+        <div class="goal-finder-box hidden" id="savGoalBox">
+          <div class="goal-field">
+            <label for="savGoalTargetInput" id="savGoalCurrencyLabel">Target amount (PKR)</label>
+            <input type="number" id="savGoalTargetInput" class="fx-number-input" value="3000000" min="0" step="any" />
+          </div>
+          <div class="goal-result-pill" id="savGoalResultText">Save PKR 0 / month</div>
+          <button type="button" class="btn-primary" id="savGoalApplyBtn">Put This On Graph</button>
+        </div>
+
+        <!-- 3 Big Numbers -->
+        <div class="kpi-strip">
+          <div class="kpi-item">
+            <div class="kpi-value" id="kpi1Value">PKR 980,536</div>
+            <div class="kpi-label" id="kpi1Label">Future Account Balance</div>
+            <div class="kpi-sub" id="kpi1Sub"></div>
+          </div>
+          <div class="kpi-divider" aria-hidden="true"></div>
+          <div class="kpi-item">
+            <div class="kpi-value kpi-green" id="kpi2Value">PKR 736,692</div>
+            <div class="kpi-label" id="kpi2Label">Today's Buying Power</div>
+            <div class="kpi-sub" id="kpi2Sub"></div>
+          </div>
+          <div class="kpi-divider" aria-hidden="true"></div>
+          <div class="kpi-item">
+            <div class="kpi-value" id="kpi3Value">PKR 243,845</div>
+            <div class="kpi-label" id="kpi3Label">Inflation Erosion</div>
+            <div class="kpi-sub" id="kpi3Sub"></div>
+          </div>
+        </div>
+
+        <div class="plain-english-banner">
+          <span class="plain-english-tag">In Simple Words</span>
+          <p class="plain-english-text" id="plainEnglishText"></p>
+        </div>
+
+        <div class="chart-stage">
+          <div id="chartContainer" class="chart-container"></div>
+          <div id="chartTooltip" class="chart-tooltip"></div>
+        </div>
+        <p class="chart-interaction-hint">Move your mouse or finger over the graph to check any year.</p>
+        <div class="chart-legend" id="chartLegend"></div>
+
+        <div class="preset-section">
+          <div class="preset-heading">Try a real-life example:</div>
+          <div class="preset-bar" id="presetBar"></div>
+        </div>
+
+        <section class="controls-panel">
+          <div class="controls-header">
+            <div>
+              <h3 class="controls-heading">Adjust savings, return &amp; inflation rates</h3>
+              <p class="controls-sub">Tap ? next to any option if you want a quick explanation</p>
+            </div>
+            <button type="button" class="toggle-chip" id="moreOptionsBtn">Starting Savings / More ▾</button>
+          </div>
+          <div class="sliders-grid" id="slidersGrid"></div>
+          <div class="advanced-options-drawer hidden" id="advancedOptionsDrawer">
+            <div class="advanced-drawer-head">Optional: Money you already saved before Month 1</div>
+            <div class="sliders-grid" id="advancedSlidersGrid"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel-card" id="ledgerCard"></section>
+    </main>
+
+    <footer class="app-footer" id="sharedShellFooter"></footer>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/three.min.js"></script>
+  <script src="finance-engine.js"></script>
+  <script src="market-data.js"></script>
+  <script src="chart-3d-renderer.js"></script>
+  <script src="chart-renderer.js"></script>
+  <script src="shell.js"></script>
+  <script src="page-controllers.js"></script>
+</body>
+</html>
