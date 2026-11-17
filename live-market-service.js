@@ -1,8 +1,9 @@
 'use strict';
 
-const FinanceEngine = require('./public/finance-engine.js');
-
-const CURRENCY_CODES = FinanceEngine.CURRENCIES.map((c) => c.code);
+const CURRENCY_CODES = [
+  'PKR', 'USD', 'AED', 'SAR', 'GBP', 'EUR', 'CAD', 'AUD', 'INR',
+  'JPY', 'CNY', 'CHF', 'TRY', 'QAR', 'KWD', 'SGD', 'MYR', 'HKD'
+];
 
 const PSX_WATCH_SYMBOLS = {
   MEBL: 'Meezan Bank',

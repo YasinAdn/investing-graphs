@@ -2,12 +2,13 @@
   "name": "investing-graphs",
   "version": "1.0.0",
   "private": true,
-  "description": "Multi-page Regal Dark Investing & Savings Calculator with Live PSX, NASDAQ, Crypto & 18 Currencies",
+  "description": "Regal Dark multi-page investing & savings calculator with live PSX, NASDAQ, Crypto & 18 currencies",
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "node local-dev-server.js",
+    "build": "node build.js",
+    "dev": "node local-dev-server.js",
     "test": "node --test finance.test.js"
   },
   "author": "Yasin Adnan <yaseenadnan2580@gmail.com>",

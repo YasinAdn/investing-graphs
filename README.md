@@ -27,7 +27,7 @@ This folder is ready for zero-config Vercel deployment (`vercel.json` + `/api/li
 
 ```bash
 cd investing-graphs
-npm start
+npm run dev
 ```
 
 Open [http://localhost:4173](http://localhost:4173) (or double-click `start.bat` on Windows).
